@@ -14,7 +14,12 @@ public class HomeService implements IHomeService {
 
 
     @Override
-    public List<Doctor> loadHomePage() {
+    public List<Doctor> listDoctors() {
         return (List<Doctor>) doctorRepository.findAll();
+    }
+
+    @Override
+    public Doctor listDoctorsByID(int id) throws Exception {
+        return doctorRepository.findById(id).orElseThrow(Exception::new);
     }
 }

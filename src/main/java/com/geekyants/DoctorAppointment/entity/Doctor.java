@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "doctor")
@@ -15,17 +16,19 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "doctorID")
-    private int doctorID;
+    int doctorID;
     @Column(name = "doctorname")
-    private String doctorname;
+    String doctorname;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressID", referencedColumnName = "addressID")
-    private Address address;
+    Address address;
     @Column(name = "contact")
-    private String contact;
+    String contact;
     @Column(name = "qualification")
-    private String qualification;
+    String qualification;
     @Column(name = "contactduration")
-    private String contactduration;
+    String contactduration;
+    @OneToMany(mappedBy = "doctor")
+    Set<Slots> slots;
 
 }

@@ -5,5 +5,8 @@ import com.geekyants.DoctorAppointment.entity.Doctor;
 import java.util.List;
 
 public interface IHomeService {
-    List<Doctor> loadHomePage();
+    List<Doctor> listDoctors();
+
+
+    Doctor listDoctorsByID(int id) throws Exception;
 }
